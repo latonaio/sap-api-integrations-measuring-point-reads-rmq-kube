@@ -1,0 +1,2213 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Measuring Point",
+    "version": "1 ",
+    "description": "\r\n\r\nIn Plant Maintenance, measuring points are located on technical objects such as pieces of equipment or at functional locations. The payload used to create a measuring point through this API is sent in JSON format as a request object. The long text for the measuring point is included within as a nested object."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_ON-PREMISE/2021.000/EN/8c/dfef769b2b4f7195a5f296982e2fe6/frameset.htm"
+  },
+  "x-sap-api-type": "ODATAV4",
+  "x-sap-shortText": "Create, update, read, activate, deactivate, and change measuring point categories using this synchronous inbound service",
+  "x-sap-api-deprecated": "No",
+  "x-sap-software-min-version": "2021",
+  "x-sap-ext-overview": [
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "Basic, x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Measuring Point",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "x-sap-stateInfo": {
+    "state": "active"
+  },
+  "security": [
+    {
+      "basicAuthentication": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata4/sap/api_measuringpoint/srvd_a2x/sap/measuringpoint/0001",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Measuring Points"
+    },
+    {
+      "name": "Measuring Point Text"
+    }
+  ],
+  "paths": {
+    "/MeasuringPoint": {
+      "get": {
+        "summary": "Get entities from MeasuringPoint",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPoint desc",
+                  "MeasuringPointDescription",
+                  "MeasuringPointDescription desc",
+                  "MeasuringPointObjectIdentifier",
+                  "MeasuringPointObjectIdentifier desc",
+                  "TechnicalObjectType",
+                  "TechnicalObjectType desc",
+                  "MeasuringPointPositionNumber",
+                  "MeasuringPointPositionNumber desc",
+                  "MeasuringPointCategory",
+                  "MeasuringPointCategory desc",
+                  "MeasuringPointIsCounter",
+                  "MeasuringPointIsCounter desc",
+                  "MsrgPtInternalCharacteristic",
+                  "MsrgPtInternalCharacteristic desc",
+                  "CharcValueUnit",
+                  "CharcValueUnit desc",
+                  "MeasuringPointDecimalPlaces",
+                  "MeasuringPointDecimalPlaces desc",
+                  "MeasuringPointExponent",
+                  "MeasuringPointExponent desc",
+                  "MeasuringPointCodeGroup",
+                  "MeasuringPointCodeGroup desc",
+                  "ValuationCodeIsSufficient",
+                  "ValuationCodeIsSufficient desc",
+                  "Assembly",
+                  "Assembly desc",
+                  "MeasuringPointIsInactive",
+                  "MeasuringPointIsInactive desc",
+                  "MeasuringPointShortText",
+                  "MeasuringPointShortText desc",
+                  "MeasurementRangeUnit",
+                  "MeasurementRangeUnit desc",
+                  "MsmtRdngSourceMeasuringPoint",
+                  "MsmtRdngSourceMeasuringPoint desc",
+                  "MeasuringPointTargetValue",
+                  "MeasuringPointTargetValue desc",
+                  "MeasuringPointMaximumThreshold",
+                  "MeasuringPointMaximumThreshold desc",
+                  "MeasuringPointMinimumThreshold",
+                  "MeasuringPointMinimumThreshold desc",
+                  "MeasuringPointAnnualEstimate",
+                  "MeasuringPointAnnualEstimate desc",
+                  "CounterOverflowRdngThreshold",
+                  "CounterOverflowRdngThreshold desc",
+                  "MsrgPtIsCountingBackwards",
+                  "MsrgPtIsCountingBackwards desc",
+                  "MeasurementTransferIsSupported",
+                  "MeasurementTransferIsSupported desc",
+                  "FunctionalLocation",
+                  "FunctionalLocation desc",
+                  "Equipment",
+                  "Equipment desc",
+                  "MsmtRdngTransferMode",
+                  "MsmtRdngTransferMode desc",
+                  "SAP__Messages",
+                  "SAP__Messages desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointDescription",
+                  "MeasuringPointObjectIdentifier",
+                  "TechnicalObjectType",
+                  "MeasuringPointPositionNumber",
+                  "MeasuringPointCategory",
+                  "MeasuringPointIsCounter",
+                  "MsrgPtInternalCharacteristic",
+                  "CharcValueUnit",
+                  "MeasuringPointDecimalPlaces",
+                  "MeasuringPointExponent",
+                  "MeasuringPointCodeGroup",
+                  "ValuationCodeIsSufficient",
+                  "Assembly",
+                  "MeasuringPointIsInactive",
+                  "MeasuringPointShortText",
+                  "MeasurementRangeUnit",
+                  "MsmtRdngSourceMeasuringPoint",
+                  "MeasuringPointTargetValue",
+                  "MeasuringPointMaximumThreshold",
+                  "MeasuringPointMinimumThreshold",
+                  "MeasuringPointAnnualEstimate",
+                  "CounterOverflowRdngThreshold",
+                  "MsrgPtIsCountingBackwards",
+                  "MeasurementTransferIsSupported",
+                  "FunctionalLocation",
+                  "Equipment",
+                  "MsmtRdngTransferMode",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_LongText"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of MeasuringPointType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to MeasuringPoint",
+        "tags": [
+          "Measuring Points"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')": {
+      "parameters": [
+        {
+          "name": "MeasuringPoint",
+          "in": "path",
+          "required": true,
+          "description": "Measuring Point",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from MeasuringPoint by key",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointDescription",
+                  "MeasuringPointObjectIdentifier",
+                  "TechnicalObjectType",
+                  "MeasuringPointPositionNumber",
+                  "MeasuringPointCategory",
+                  "MeasuringPointIsCounter",
+                  "MsrgPtInternalCharacteristic",
+                  "CharcValueUnit",
+                  "MeasuringPointDecimalPlaces",
+                  "MeasuringPointExponent",
+                  "MeasuringPointCodeGroup",
+                  "ValuationCodeIsSufficient",
+                  "Assembly",
+                  "MeasuringPointIsInactive",
+                  "MeasuringPointShortText",
+                  "MeasurementRangeUnit",
+                  "MsmtRdngSourceMeasuringPoint",
+                  "MeasuringPointTargetValue",
+                  "MeasuringPointMaximumThreshold",
+                  "MeasuringPointMinimumThreshold",
+                  "MeasuringPointAnnualEstimate",
+                  "CounterOverflowRdngThreshold",
+                  "MsrgPtIsCountingBackwards",
+                  "MeasurementTransferIsSupported",
+                  "FunctionalLocation",
+                  "Equipment",
+                  "MsmtRdngTransferMode",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_LongText"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in MeasuringPoint",
+        "tags": [
+          "Measuring Points"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType-update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/SAP__self.StartMsmtReadingTransfer": {
+      "post": {
+        "summary": "Invoke action StartMsmtReadingTransfer",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MsmtRdngIntervalStartDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalStartTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "MsmtRdngIntervalEndDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalEndTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "MsmtRdngSourceMeasuringPoint": {
+                    "type": "string",
+                    "maxLength": 12
+                  },
+                  "MsmtRdngTransferMode": {
+                    "type": "string",
+                    "maxLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/SAP__self.DeactivateMeasuringPoint": {
+      "post": {
+        "summary": "Invoke action DeactivateMeasuringPoint",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/SAP__self.CancelMsmtReadingTransfer": {
+      "post": {
+        "summary": "Invoke action CancelMsmtReadingTransfer",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MsmtRdngIntervalEndDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalEndTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/SAP__self.ChangeMeasuringPointCategory": {
+      "post": {
+        "summary": "Invoke action ChangeMeasuringPointCategory",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MeasuringPointCategory": {
+                    "type": "string",
+                    "maxLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/SAP__self.ActivateMeasuringPoint": {
+      "post": {
+        "summary": "Invoke action ActivateMeasuringPoint",
+        "tags": [
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPoint('{MeasuringPoint}')/_LongText": {
+      "parameters": [
+        {
+          "name": "MeasuringPoint",
+          "in": "path",
+          "required": true,
+          "description": "Measuring Point",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get related _LongText",
+        "tags": [
+          "Measuring Points",
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointLongText",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_MeasuringPoint"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText": {
+      "get": {
+        "summary": "Get entities from MeasuringPointLongText",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPoint desc",
+                  "SAP__Messages",
+                  "SAP__Messages desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointLongText",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_MeasuringPoint"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of MeasuringPointLongTextType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to MeasuringPointLongText",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')": {
+      "parameters": [
+        {
+          "name": "MeasuringPoint",
+          "in": "path",
+          "required": true,
+          "description": "Measuring Point",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from MeasuringPointLongText by key",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointLongText",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_MeasuringPoint"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in MeasuringPointLongText",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType-update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint": {
+      "parameters": [
+        {
+          "name": "MeasuringPoint",
+          "in": "path",
+          "required": true,
+          "description": "Measuring Point",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get related _MeasuringPoint",
+        "tags": [
+          "Measuring Point Text",
+          "Measuring Points"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MeasuringPoint",
+                  "MeasuringPointDescription",
+                  "MeasuringPointObjectIdentifier",
+                  "TechnicalObjectType",
+                  "MeasuringPointPositionNumber",
+                  "MeasuringPointCategory",
+                  "MeasuringPointIsCounter",
+                  "MsrgPtInternalCharacteristic",
+                  "CharcValueUnit",
+                  "MeasuringPointDecimalPlaces",
+                  "MeasuringPointExponent",
+                  "MeasuringPointCodeGroup",
+                  "ValuationCodeIsSufficient",
+                  "Assembly",
+                  "MeasuringPointIsInactive",
+                  "MeasuringPointShortText",
+                  "MeasurementRangeUnit",
+                  "MsmtRdngSourceMeasuringPoint",
+                  "MeasuringPointTargetValue",
+                  "MeasuringPointMaximumThreshold",
+                  "MeasuringPointMinimumThreshold",
+                  "MeasuringPointAnnualEstimate",
+                  "CounterOverflowRdngThreshold",
+                  "MsrgPtIsCountingBackwards",
+                  "MeasurementTransferIsSupported",
+                  "FunctionalLocation",
+                  "Equipment",
+                  "MsmtRdngTransferMode",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_LongText"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint/SAP__self.StartMsmtReadingTransfer": {
+      "post": {
+        "summary": "Invoke action StartMsmtReadingTransfer",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MsmtRdngIntervalStartDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalStartTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "MsmtRdngIntervalEndDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalEndTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "MsmtRdngSourceMeasuringPoint": {
+                    "type": "string",
+                    "maxLength": 12
+                  },
+                  "MsmtRdngTransferMode": {
+                    "type": "string",
+                    "maxLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint/SAP__self.DeactivateMeasuringPoint": {
+      "post": {
+        "summary": "Invoke action DeactivateMeasuringPoint",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint/SAP__self.CancelMsmtReadingTransfer": {
+      "post": {
+        "summary": "Invoke action CancelMsmtReadingTransfer",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MsmtRdngIntervalEndDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "MsmtRdngIntervalEndTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint/SAP__self.ChangeMeasuringPointCategory": {
+      "post": {
+        "summary": "Invoke action ChangeMeasuringPointCategory",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MeasuringPointCategory": {
+                    "type": "string",
+                    "maxLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MeasuringPointLongText('{MeasuringPoint}')/_MeasuringPoint/SAP__self.ActivateMeasuringPoint": {
+      "post": {
+        "summary": "Invoke action ActivateMeasuringPoint",
+        "tags": [
+          "Measuring Point Text"
+        ],
+        "parameters": [
+          {
+            "name": "MeasuringPoint",
+            "in": "path",
+            "required": true,
+            "description": "Measuring Point",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/$batch": {
+      "post": {
+        "summary": "Send a group of requests",
+        "description": "Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).\n\n*Please note that \"Try it out\" is not supported for this request.*",
+        "tags": [
+          "Batch Requests"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Batch request",
+          "content": {
+            "multipart/mixed;boundary=request-separator": {
+              "schema": {
+                "type": "string"
+              },
+              "example": "--request-separator\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nGET MeasuringPoint HTTP/1.1\nAccept: application/json\n\n\n--request-separator--"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Batch response",
+            "content": {
+              "multipart/mixed": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "--response-separator\nContent-Type: application/http\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{...}\n--response-separator--"
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuthentication": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType": {
+        "type": "object",
+        "properties": {
+          "MeasuringPoint": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Measuring point",
+            "description": "Measuring Point"
+          },
+          "MeasuringPointDescription": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Description",
+            "description": "Description of Measuring Point"
+          },
+          "MeasuringPointObjectIdentifier": {
+            "type": "string",
+            "maxLength": 22,
+            "title": "OBjNo.MeasPointObj.",
+            "description": "Object Number for the Measuring Point Object"
+          },
+          "TechnicalObjectType": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Object Type",
+            "description": "Type of Technical Object"
+          },
+          "MeasuringPointPositionNumber": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Measurement position",
+            "description": "Position Number of the Object Measuring Point (Sort Field)"
+          },
+          "MeasuringPointCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "MeasPointCategory",
+            "description": "Measuring Point Category"
+          },
+          "MeasuringPointIsCounter": {
+            "type": "boolean",
+            "title": "MeasPoint is counter",
+            "description": "Indicator to Show that Measuring Point Is a Counter"
+          },
+          "MsrgPtInternalCharacteristic": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Characteristic Internal ID"
+          },
+          "CharcValueUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Internal UoM",
+            "description": "Unit of Measurement"
+          },
+          "MeasuringPointDecimalPlaces": {
+            "type": "integer",
+            "format": "int16",
+            "title": "Decimal places",
+            "description": "Number of Decimal Places for Number Display"
+          },
+          "MeasuringPointExponent": {
+            "type": "integer",
+            "format": "int16",
+            "title": "FloatPointExp.",
+            "description": "Power of Ten Exponent for Floating Point Display"
+          },
+          "MeasuringPointCodeGroup": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Code group",
+            "description": "Code Group - Measurement Reading Valuation Code"
+          },
+          "ValuationCodeIsSufficient": {
+            "type": "boolean",
+            "title": "ValCode sufficient",
+            "description": "Indicator: Valuation Code Sufficient for Measurmnt. Document"
+          },
+          "Assembly": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Assembly",
+            "description": "Assembly for Localization of Measuring Point"
+          },
+          "MeasuringPointIsInactive": {
+            "type": "boolean",
+            "title": "MeasPoint inactive",
+            "description": "Indicator: Measuring Point Inactive"
+          },
+          "MeasuringPointShortText": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Text",
+            "description": "Aditional Short Text for Measuring Point"
+          },
+          "MeasurementRangeUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MeasurmntRangeUnit",
+            "description": "Measurement Range Unit"
+          },
+          "MsmtRdngSourceMeasuringPoint": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Reading trans. fr.",
+            "description": "Measuring Point from Which Meas. Reading Was Transferred"
+          },
+          "MeasuringPointTargetValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Target value",
+            "description": "Measuring Point Target Value"
+          },
+          "MeasuringPointMaximumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Upper range limit",
+            "description": "Upper Measurement Range Limit/Maximum Total Counter Reading"
+          },
+          "MeasuringPointMinimumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Lower range limit",
+            "description": "Lower Measurement Range Limit/Minimum Total Counter Reading"
+          },
+          "MeasuringPointAnnualEstimate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Annual estimate",
+            "description": "Annual Estimate in SI Unit"
+          },
+          "CounterOverflowRdngThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "CountOverflwReadg",
+            "description": "Counter Overflow Reading in SI Unit"
+          },
+          "MsrgPtIsCountingBackwards": {
+            "type": "boolean",
+            "title": "Count backwards",
+            "description": "Indicator: Counter Runs Backwards"
+          },
+          "MeasurementTransferIsSupported": {
+            "type": "boolean",
+            "title": "Supported",
+            "description": "Indicator That Measurement Reading Transfer is Supported"
+          },
+          "FunctionalLocation": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Functional location"
+          },
+          "Equipment": {
+            "type": "string",
+            "maxLength": 18,
+            "title": "Equipment",
+            "description": "Equipment Number"
+          },
+          "MsmtRdngTransferMode": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Transfer mode",
+            "description": "Mode of Counter Reading Transfer"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message"
+            }
+          },
+          "_LongText": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType"
+          }
+        },
+        "title": "Measuring Points"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType-create": {
+        "type": "object",
+        "properties": {
+          "MeasuringPointDescription": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Description",
+            "description": "Description of Measuring Point"
+          },
+          "MeasuringPointPositionNumber": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Measurement position",
+            "description": "Position Number of the Object Measuring Point (Sort Field)"
+          },
+          "MeasuringPointCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "MeasPointCategory",
+            "description": "Measuring Point Category"
+          },
+          "MeasuringPointIsCounter": {
+            "type": "boolean",
+            "title": "MeasPoint is counter",
+            "description": "Indicator to Show that Measuring Point Is a Counter"
+          },
+          "MsrgPtInternalCharacteristic": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Characteristic Internal ID"
+          },
+          "MeasuringPointDecimalPlaces": {
+            "type": "integer",
+            "format": "int16",
+            "title": "Decimal places",
+            "description": "Number of Decimal Places for Number Display"
+          },
+          "MeasuringPointExponent": {
+            "type": "integer",
+            "format": "int16",
+            "title": "FloatPointExp.",
+            "description": "Power of Ten Exponent for Floating Point Display"
+          },
+          "MeasuringPointCodeGroup": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Code group",
+            "description": "Code Group - Measurement Reading Valuation Code"
+          },
+          "ValuationCodeIsSufficient": {
+            "type": "boolean",
+            "title": "ValCode sufficient",
+            "description": "Indicator: Valuation Code Sufficient for Measurmnt. Document"
+          },
+          "Assembly": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Assembly",
+            "description": "Assembly for Localization of Measuring Point"
+          },
+          "MeasuringPointIsInactive": {
+            "type": "boolean",
+            "title": "MeasPoint inactive",
+            "description": "Indicator: Measuring Point Inactive"
+          },
+          "MeasuringPointShortText": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Text",
+            "description": "Aditional Short Text for Measuring Point"
+          },
+          "MeasurementRangeUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MeasurmntRangeUnit",
+            "description": "Measurement Range Unit"
+          },
+          "MeasuringPointTargetValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Target value",
+            "description": "Measuring Point Target Value"
+          },
+          "MeasuringPointMaximumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Upper range limit",
+            "description": "Upper Measurement Range Limit/Maximum Total Counter Reading"
+          },
+          "MeasuringPointMinimumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Lower range limit",
+            "description": "Lower Measurement Range Limit/Minimum Total Counter Reading"
+          },
+          "MeasuringPointAnnualEstimate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Annual estimate",
+            "description": "Annual Estimate in SI Unit"
+          },
+          "CounterOverflowRdngThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "CountOverflwReadg",
+            "description": "Counter Overflow Reading in SI Unit"
+          },
+          "MsrgPtIsCountingBackwards": {
+            "type": "boolean",
+            "title": "Count backwards",
+            "description": "Indicator: Counter Runs Backwards"
+          },
+          "MeasurementTransferIsSupported": {
+            "type": "boolean",
+            "title": "Supported",
+            "description": "Indicator That Measurement Reading Transfer is Supported"
+          },
+          "FunctionalLocation": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Functional location"
+          },
+          "Equipment": {
+            "type": "string",
+            "maxLength": 18,
+            "title": "Equipment",
+            "description": "Equipment Number"
+          },
+          "MsmtRdngTransferMode": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Transfer mode",
+            "description": "Mode of Counter Reading Transfer"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-create"
+            }
+          },
+          "_LongText": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType-create"
+          }
+        },
+        "required": [
+          "MeasuringPointCategory"
+        ],
+        "title": "Measuring Points (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType-update": {
+        "type": "object",
+        "properties": {
+          "MeasuringPointDescription": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Description",
+            "description": "Description of Measuring Point"
+          },
+          "MeasuringPointPositionNumber": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Measurement position",
+            "description": "Position Number of the Object Measuring Point (Sort Field)"
+          },
+          "MeasuringPointCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "MeasPointCategory",
+            "description": "Measuring Point Category"
+          },
+          "MeasuringPointIsCounter": {
+            "type": "boolean",
+            "title": "MeasPoint is counter",
+            "description": "Indicator to Show that Measuring Point Is a Counter"
+          },
+          "MsrgPtInternalCharacteristic": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Characteristic Internal ID"
+          },
+          "MeasuringPointDecimalPlaces": {
+            "type": "integer",
+            "format": "int16",
+            "title": "Decimal places",
+            "description": "Number of Decimal Places for Number Display"
+          },
+          "MeasuringPointExponent": {
+            "type": "integer",
+            "format": "int16",
+            "title": "FloatPointExp.",
+            "description": "Power of Ten Exponent for Floating Point Display"
+          },
+          "MeasuringPointCodeGroup": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Code group",
+            "description": "Code Group - Measurement Reading Valuation Code"
+          },
+          "ValuationCodeIsSufficient": {
+            "type": "boolean",
+            "title": "ValCode sufficient",
+            "description": "Indicator: Valuation Code Sufficient for Measurmnt. Document"
+          },
+          "Assembly": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Assembly",
+            "description": "Assembly for Localization of Measuring Point"
+          },
+          "MeasuringPointIsInactive": {
+            "type": "boolean",
+            "title": "MeasPoint inactive",
+            "description": "Indicator: Measuring Point Inactive"
+          },
+          "MeasuringPointShortText": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Text",
+            "description": "Aditional Short Text for Measuring Point"
+          },
+          "MeasurementRangeUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MeasurmntRangeUnit",
+            "description": "Measurement Range Unit"
+          },
+          "MeasuringPointTargetValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Target value",
+            "description": "Measuring Point Target Value"
+          },
+          "MeasuringPointMaximumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Upper range limit",
+            "description": "Upper Measurement Range Limit/Maximum Total Counter Reading"
+          },
+          "MeasuringPointMinimumThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Lower range limit",
+            "description": "Lower Measurement Range Limit/Minimum Total Counter Reading"
+          },
+          "MeasuringPointAnnualEstimate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Annual estimate",
+            "description": "Annual Estimate in SI Unit"
+          },
+          "CounterOverflowRdngThreshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "CountOverflwReadg",
+            "description": "Counter Overflow Reading in SI Unit"
+          },
+          "MsrgPtIsCountingBackwards": {
+            "type": "boolean",
+            "title": "Count backwards",
+            "description": "Indicator: Counter Runs Backwards"
+          },
+          "MeasurementTransferIsSupported": {
+            "type": "boolean",
+            "title": "Supported",
+            "description": "Indicator That Measurement Reading Transfer is Supported"
+          },
+          "FunctionalLocation": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Functional location"
+          },
+          "Equipment": {
+            "type": "string",
+            "maxLength": 18,
+            "title": "Equipment",
+            "description": "Equipment Number"
+          },
+          "MsmtRdngTransferMode": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Transfer mode",
+            "description": "Mode of Counter Reading Transfer"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-update"
+            }
+          }
+        },
+        "title": "Measuring Points (for update)"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType": {
+        "type": "object",
+        "properties": {
+          "MeasuringPoint": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Measuring point",
+            "description": "Measuring Point"
+          },
+          "MeasuringPointLongText": {
+            "type": "string",
+            "title": "Long Text"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message"
+            }
+          },
+          "_MeasuringPoint": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType"
+          }
+        },
+        "title": "Measuring Point Text"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType-create": {
+        "type": "object",
+        "properties": {
+          "MeasuringPointLongText": {
+            "type": "string",
+            "title": "Long Text"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-create"
+            }
+          },
+          "_MeasuringPoint": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointType-create"
+          }
+        },
+        "required": [
+          "MeasuringPointLongText"
+        ],
+        "title": "Measuring Point Text (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.MeasuringPointLongTextType-update": {
+        "type": "object",
+        "properties": {
+          "MeasuringPointLongText": {
+            "type": "string",
+            "title": "Long Text"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-update"
+            }
+          }
+        },
+        "title": "Measuring Point Text (for update)"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-create": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_measuringpoint.v0001.SAP__Message-update": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message (for update)"
+      },
+      "count": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "description": "The number of entities in the collection. Available when using the [$count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptiontop)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionskip)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$count",
+        "in": "query",
+        "description": "Include count of items, see [Count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount)",
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    }
+  }
+}

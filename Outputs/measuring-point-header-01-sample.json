@@ -1,0 +1,40 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-measuring-point-reads-rmq-kube/SAP_API_Caller/caller.go#L58",
+	"function": "sap-api-integrations-measuring-point-reads-rmq-kube/SAP_API_Caller.(*SAPAPICaller).Header",
+	"level": "INFO",
+	"message": [
+		{
+			"MeasuringPoint": "1",
+			"MeasuringPointDescription": "recurring counter",
+			"MeasuringPointObjectIdentifier": "IE000000000217100901",
+			"TechnicalObjectType": "EAMS_EQUI",
+			"MeasuringPointPositionNumber": "",
+			"MeasuringPointCategory": "M",
+			"CreationDate": "2020-11-02",
+			"LastChangeDate": "",
+			"MeasuringPointIsCounter": true,
+			"MsrgPtInternalCharacteristic": "136",
+			"CharcValueUnit": "KM",
+			"MeasuringPointDecimalPlaces": 3,
+			"MeasuringPointExponent": 0,
+			"MeasuringPointCodeGroup": "",
+			"ValuationCodeIsSufficient": false,
+			"Assembly": "",
+			"MeasuringPointIsInactive": false,
+			"MeasuringPointShortText": "",
+			"MeasurementRangeUnit": "KM",
+			"MsmtRdngSourceMeasuringPoint": "",
+			"MeasuringPointTargetValue": 0,
+			"MeasuringPointMaximumThreshold": 0,
+			"MeasuringPointMinimumThreshold": 0,
+			"MeasuringPointAnnualEstimate": 0,
+			"CounterOverflowRdngThreshold": 0,
+			"MsrgPtIsCountingBackwards": false,
+			"MeasurementTransferIsSupported": false,
+			"FunctionalLocation": "",
+			"Equipment": "217100901",
+			"MsmtRdngTransferMode": ""
+		}
+	],
+	"time": "2022-01-28T18:02:27+09:00"
+}
